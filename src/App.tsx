@@ -26,7 +26,7 @@ const ResumeModal = lazy(() => import('./components/ResumeModal'));
 
 type Stage = 'opening' | 'profiles' | 'home';
 
-const STORAGE_KEY = 'sushmita-series-profile';
+const STORAGE_KEY = 'kashi-series-profile';
 
 function readStoredProfile(): ProfileId | null {
   try {
@@ -47,8 +47,8 @@ export default function App() {
 
 function Series() {
   const stored = readStoredProfile();
-  const [stage, setStage] = useState<Stage>(stored ? 'home' : 'opening');
-  const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'sushmita');
+  const [stage, setStage] = useState<Stage>('opening');
+  const [profileId, setProfileId] = useState<ProfileId>('kashi');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState(false);
@@ -74,13 +74,9 @@ function Series() {
       if (stage !== 'home') {
         window.scrollTo(0, 0);
         setStage('home');
-      } else {
-        const p = viewerProfiles.find((v) => v.id === id)!;
-        setToast(`Now watching as ${p.name} — ${p.blurb.toLowerCase()}`);
-        scrollTo(0, { offset: 0 });
       }
     },
-    [stage, scrollTo],
+    [stage],
   );
 
   useEffect(() => {
@@ -109,8 +105,7 @@ function Series() {
       <CustomCursor />
 
       <AnimatePresence>
-        {stage === 'opening' && <OpeningSequence key="opening" onDone={() => setStage('profiles')} />}
-        {stage === 'profiles' && <ProfileSelector key="profiles" onPick={pickProfile} />}
+        {stage === 'opening' && <OpeningSequence key="opening" onDone={() => setStage('home')} />}
       </AnimatePresence>
 
       {stage === 'home' && (

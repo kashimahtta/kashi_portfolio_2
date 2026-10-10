@@ -606,7 +606,7 @@ export const introSlides: IntroSlide[] = [
   },
 ];
 
-export type ProfileId = 'sushmita' | 'recruiter' | 'developer' | 'creative';
+export type ProfileId = 'kashi';
 export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
 
 export const viewerProfiles: {
@@ -617,32 +617,11 @@ export const viewerProfiles: {
   order: SectionId[];
 }[] = [
   {
-    id: 'sushmita',
-    name: 'Sushmita',
-    blurb: 'The full series, in order',
+    id: 'kashi',
+    name: 'Kashi Mahtta',
+    blurb: 'Welcome to Kashi Series',
     color: '#e5132b',
     order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'],
-  },
-  {
-    id: 'recruiter',
-    name: 'Recruiter',
-    blurb: 'Resume, achievements & skills first',
-    color: '#4cc9ff',
-    order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'],
-  },
-  {
-    id: 'developer',
-    name: 'Developer',
-    blurb: 'Projects, stack & GitHub first',
-    color: '#46e3a8',
-    order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'],
-  },
-  {
-    id: 'creative',
-    name: 'Creative',
-    blurb: 'The story arc & highlights first',
-    color: '#ffb547',
-    order: ['journey', 'picks', 'originals', 'moments', 'about', 'skills', 'story'],
   },
 ];
 
