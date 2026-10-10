@@ -1,5 +1,15 @@
 {
   "name": "kashi-mahtta-portfolio",
+  "description": "Kashi Mahtta — Full-Stack Developer Portfolio",
+  "author": {
+    "name": "Kashi Mahtta",
+    "email": "kashimahtta@gmail.com",
+    "url": "https://github.com/kashimahtta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kashimahtta/kashi-portfolio"
+  },
   "private": true,
   "version": "1.0.0",
   "type": "module",
