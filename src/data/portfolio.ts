@@ -1,7 +1,6 @@
 /**
- * Central portfolio data — generated from Kashi Mahtta's resume.
- * Every fact on the site comes from this file. Update it here and the whole site follows.
- * Nothing here should be added unless it appears on the resume.
+ * Kashi Mahtta Portfolio — Content from resume only.
+ * Full-Stack Developer | Learning DSA and Cloud Computing | AWS & Docker Enthusiast
  */
 
 export type Palette = { from: string; via: string; to: string; accent: string };
@@ -11,12 +10,11 @@ export const profile = {
   displayName: 'Kashi Mahtta',
   firstName: 'KASHI',
   seriesTag: 'THE SERIES',
-  /** Fictional studio card shown at the very start of the opening sequence. */
   originalLabel: 'A KASHI ORIGINAL',
   role: 'Full-Stack Developer',
-  tagline: ['Full-Stack Developer', 'DSA & Cloud', 'AI/LLM'],
+  tagline: ['Full-Stack Developer', 'Learning DSA & Cloud', 'AWS & Docker Enthusiast'],
   intro:
-    'A B.Tech Computer Science student and full-stack developer building AI-powered applications with React, Python, Node.js, FastAPI, and cloud technologies. Passionate about learning DSA, cloud computing, and integrating AI/LLM APIs into scalable applications.',
+    'B.Tech Computer Science student with hands-on full-stack web development experience. Building responsive applications with React, JavaScript, Python, Node.js, Express, and integrating AI/LLM APIs.',
   location: 'Delhi, India',
   email: 'kashimahtta@gmail.com',
   links: {
@@ -29,7 +27,7 @@ export const profile = {
     srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
     alt: 'Portrait of Kashi Mahtta',
   },
-  interests: ['AI & LLMs', 'Cloud Computing (AWS)', 'Full-Stack Development'],
+  interests: ['AI & LLMs', 'Cloud Computing (AWS)', 'Data Structures & Algorithms'],
 };
 
 export const education = [
@@ -112,7 +110,6 @@ export type Project = {
   build: string[];
   features: string[];
   metrics: Metric[];
-  /** Omit when the repository isn't public — the GitHub button is hidden instead of linking to a 404. */
   github?: string;
   palette: Palette;
   motif: 'shield' | 'flow' | 'tenants';
@@ -120,31 +117,29 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'ai-laptop-guardian',
+    id: 'ai-laptop-health',
     title: 'AI Laptop Health Guardian',
     year: '2026',
-    genre: 'AI • Real-time Monitoring • Predictive Analytics',
-    logline: 'An AI-powered laptop health monitoring system with predictive analytics, smart alerts, and personalized recommendations.',
-    stack: ['Python', 'React.js', 'Streamlit', 'AI/ML', 'Chart.js'],
+    genre: 'AI • Real-time Monitoring • Dashboard',
+    logline: 'AI-powered laptop health monitoring with real-time metrics, predictive analytics, and AI troubleshooting assistant.',
+    stack: ['Python', 'React.js', 'Streamlit', 'Chart.js'],
     build: [
-      'Developed an AI-powered laptop health monitoring system analyzing CPU, RAM, battery, storage, and temperature metrics to generate an overall Laptop Health Score.',
-      'Implemented real-time monitoring, predictive analytics, smart alerts, and personalized recommendations for performance optimization and device longevity.',
-      'Designed an interactive dashboard with performance charts, AI insights, and a natural-language assistant for laptop troubleshooting.',
+      'Developed AI-powered laptop health monitoring system analyzing CPU, RAM, battery, storage, and temperature metrics.',
+      'Implemented real-time monitoring, predictive analytics, smart alerts, and personalized recommendations.',
+      'Designed interactive dashboard with performance charts, AI insights, and troubleshooting assistant.',
     ],
     features: [
-      'Real-time CPU, RAM, battery, and temperature monitoring',
-      'Predictive health analytics and scoring',
-      'Smart alerts for performance issues',
+      'Real-time CPU, RAM, battery, temperature monitoring',
+      'Laptop Health Score calculation',
+      'Predictive analytics and alerts',
       'AI-powered troubleshooting assistant',
       'Interactive performance dashboard',
     ],
     metrics: [
-      { value: '5', label: 'core metrics tracked' },
+      { value: '5', label: 'core metrics' },
       { value: 'Real-time', label: 'monitoring' },
       { value: 'AI-driven', label: 'insights' },
-      { value: '100%', label: 'system coverage' },
     ],
-    github: 'https://github.com/kashimahtta/ai-laptop-health-guardian',
     palette: { from: '#1a0f2e', via: '#6a1e6e', to: '#0f0a1f', accent: '#b366ff' },
     motif: 'shield',
   },
@@ -152,19 +147,19 @@ export const projects: Project[] = [
     id: 'mak-quiz-builder',
     title: 'MAK Quiz Builder',
     year: '2026',
-    genre: 'Full-Stack • Generative AI • Education',
-    logline: 'A quiz platform that generates topic-based MCQs using AI with configurable difficulty levels and performance evaluation.',
+    genre: 'Python • Streamlit • Generative AI',
+    logline: 'AI-powered quiz platform generating topic-based MCQs with configurable difficulty levels.',
     stack: ['Python', 'Streamlit', 'Generative AI', 'JSON'],
     build: [
-      'Developed a quiz platform that generates 3–10 topic-based MCQs from user-provided study details and configurable difficulty levels.',
-      'Implemented complete workflow: topic selection, question generation, quiz attempt, submission, and result evaluation with detailed feedback.',
-      'Added customizable question counts and difficulty modes: Warm-up, Focused, and Stretch for adaptive learning.',
-      'Enabled JSON export of generated question sets and designed for easy local execution.',
+      'Developed quiz platform generating 3–10 topic-based MCQs from study details and difficulty levels.',
+      'Implemented complete workflow: topic selection, question generation, quiz attempt, submission, and evaluation.',
+      'Added customizable difficulty modes: Warm-up, Focused, Stretch for adaptive learning.',
+      'Enabled JSON export of question sets for offline use.',
     ],
     features: [
-      'AI-powered MCQ generation from topics',
-      'Customizable question counts (3–10)',
-      'Three difficulty modes: Warm-up, Focused, Stretch',
+      'AI-powered MCQ generation',
+      '3–10 questions per quiz',
+      'Three difficulty modes',
       'Real-time quiz evaluation',
       'JSON export for offline use',
       'Detailed result analysis',
@@ -172,24 +167,22 @@ export const projects: Project[] = [
     metrics: [
       { value: '3–10', label: 'MCQs per quiz' },
       { value: '3', label: 'difficulty levels' },
-      { value: 'AI-generated', label: 'questions' },
-      { value: 'JSON export', label: 'supported' },
+      { value: 'AI-generated', label: 'content' },
     ],
-    github: 'https://github.com/kashimahtta/mak-quiz-builder',
     palette: { from: '#0d1b2a', via: '#1e4d7b', to: '#0a0e17', accent: '#4db8ff' },
     motif: 'flow',
   },
   {
     id: 'ai-minutes-assistant',
-    title: 'AI Minutes of Meeting & Action Assistant',
+    title: 'AI Minutes & Action Assistant',
     year: '2026',
-    genre: 'RAG • LLM • Workflow Automation',
-    logline: 'A RAG-based application that converts meeting content into structured minutes, decisions, risks, and action items.',
+    genre: 'Python • LangChain • RAG',
+    logline: 'RAG application converting meeting content into structured minutes, decisions, and action items.',
     stack: ['Python', 'LangChain', 'LangGraph', 'RAG', 'OpenAI API'],
     build: [
-      'Built a RAG-based AI application that converts meeting content into structured minutes, key decisions, identified risks, and assigned action items.',
-      'Integrated LangChain and LangGraph for intelligent document processing and workflow orchestration.',
-      'Implemented semantic understanding and context extraction for accurate meeting summarization and action item assignment.',
+      'Built RAG application converting meetings into structured minutes, decisions, and action items.',
+      'Integrated LangChain and LangGraph for intelligent document processing.',
+      'Implemented semantic understanding for accurate meeting summarization.',
     ],
     features: [
       'Meeting transcription processing',
@@ -197,15 +190,13 @@ export const projects: Project[] = [
       'Key decision extraction',
       'Risk identification',
       'Action item assignment',
-      'Semantic document understanding',
+      'Semantic understanding',
     ],
     metrics: [
       { value: '100%', label: 'meeting coverage' },
       { value: 'RAG-powered', label: 'understanding' },
-      { value: 'LLM-based', label: 'summarization' },
       { value: 'Automated', label: 'action items' },
     ],
-    github: 'https://github.com/kashimahtta/ai-minutes-assistant',
     palette: { from: '#1f0a2e', via: '#7a1e5c', to: '#0f0620', accent: '#ff66b2' },
     motif: 'tenants',
   },
