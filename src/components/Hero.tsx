@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
-import { achievements, certifications, education, profile, projects, type ProfileId } from '../data/portfolio';
+import { certifications, education, profile, projects } from '../data/portfolio';
 import { useFinePointer } from '../hooks/useMedia';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
@@ -12,7 +12,7 @@ const item = {
   show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: EASE } },
 };
 
-export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => void; onResume: () => void; profileId: ProfileId }) {
+export default function Hero({ onPlay }: { onPlay: () => void }) {
   const ref = useRef<HTMLElement>(null);
   const fine = useFinePointer();
   const { scrollTo } = useSmoothScroll();
@@ -37,8 +37,8 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const glowX = useTransform(px, [-1, 1], ['-6%', '6%']);
 
   const meta = [
-    '2024 – Present',
-    'B.Tech Computer Science',
+    education[0].period,
+    education[0].degree,
     `${projects.length} Projects`,
     `${certifications.length} Certifications`,
   ];
@@ -157,19 +157,13 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
             </button>
           </Magnetic>
           <Magnetic>
-            {profileId === 'recruiter' ? (
-              <button type="button" onClick={onResume} className="glass flex min-h-12 items-center gap-3 rounded-md px-6 py-3 text-[15px] font-semibold text-bone transition hover:bg-white/15 sm:px-8">
-                <span className="text-lg">⤓</span> View Resume
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={() => scrollTo('#originals')}
-                className="glass flex min-h-12 items-center gap-3 rounded-md px-6 py-3 text-[15px] font-semibold text-bone transition hover:bg-white/15 sm:px-8"
-              >
-                <span className="text-xl leading-none">＋</span> My Work
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => scrollTo('#originals')}
+              className="glass flex min-h-12 items-center gap-3 rounded-md px-6 py-3 text-[15px] font-semibold text-bone transition hover:bg-white/15 sm:px-8"
+            >
+              <span className="text-xl leading-none">＋</span> My Work
+            </button>
           </Magnetic>
           <button
             type="button"

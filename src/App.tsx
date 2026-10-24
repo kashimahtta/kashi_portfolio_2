@@ -1,10 +1,9 @@
 import { lazy, Suspense, useCallback, useEffect, useState, type ReactNode } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
-import { viewerProfiles, type ProfileId, type Project, type SectionId } from './data/portfolio';
+import type { Project, SectionId } from './data/portfolio';
 import { SmoothScrollProvider, useSmoothScroll } from './hooks/smoothScroll';
 import CustomCursor from './components/CustomCursor';
 import OpeningSequence from './components/OpeningSequence';
-import ProfileSelector from './components/ProfileSelector';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ContinueWatching from './components/ContinueWatching';
@@ -24,18 +23,9 @@ const PlayIntro = lazy(() => import('./components/PlayIntro'));
 const ProjectModal = lazy(() => import('./components/ProjectModal'));
 const ResumeModal = lazy(() => import('./components/ResumeModal'));
 
-type Stage = 'opening' | 'profiles' | 'home';
+type Stage = 'opening' | 'home';
 
-const STORAGE_KEY = 'kashi-series-profile';
-
-function readStoredProfile(): ProfileId | null {
-  try {
-    const v = sessionStorage.getItem(STORAGE_KEY);
-    return viewerProfiles.some((p) => p.id === v) ? (v as ProfileId) : null;
-  } catch {
-    return null;
-  }
-}
+const SECTION_ORDER: SectionId[] = ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'];
 
 export default function App() {
   return (
@@ -46,38 +36,18 @@ export default function App() {
 }
 
 function Series() {
-  const stored = readStoredProfile();
   const [stage, setStage] = useState<Stage>('opening');
-  const [profileId, setProfileId] = useState<ProfileId>('kashi');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
-  const { scrollTo, lock, unlock } = useSmoothScroll();
-
-  const order = viewerProfiles.find((p) => p.id === profileId)!.order;
+  const { lock, unlock } = useSmoothScroll();
 
   useEffect(() => {
     if (stage === 'home') return;
     lock();
     return unlock;
   }, [stage, lock, unlock]);
-
-  const pickProfile = useCallback(
-    (id: ProfileId) => {
-      setProfileId(id);
-      try {
-        sessionStorage.setItem(STORAGE_KEY, id);
-      } catch {
-        /* storage unavailable — profile simply won't persist */
-      }
-      if (stage !== 'home') {
-        window.scrollTo(0, 0);
-        setStage('home');
-      }
-    },
-    [stage],
-  );
 
   useEffect(() => {
     if (!toast) return;
@@ -110,11 +80,11 @@ function Series() {
 
       {stage === 'home' && (
         <motion.div initial={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }} animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1, ease: EASE }}>
-          <Navbar order={order} profileId={profileId} onSwitch={pickProfile} />
+          <Navbar order={SECTION_ORDER} />
           <main>
-            <Hero key={`hero-${profileId}`} onPlay={() => setPlaying(true)} onResume={() => setResumeOpen(true)} profileId={profileId} />
-            <ContinueWatching order={order} />
-            {order.map((id) => (
+            <Hero onPlay={() => setPlaying(true)} />
+            <ContinueWatching order={SECTION_ORDER} />
+            {SECTION_ORDER.map((id) => (
               <Scene key={id} id={id} className={id === 'originals' ? '!py-0 sm:!py-0' : ''}>
                 {sections[id]}
               </Scene>
