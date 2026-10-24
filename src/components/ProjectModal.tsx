@@ -91,9 +91,22 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               {project.logline}
             </motion.p>
 
-            {project.github && (
+            {(project.github || project.links) && (
               <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
-                <Magnetic>
+                {project.links?.map((l) => (
+                  <Magnetic key={l.href}>
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="link"
+                      className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
+                    >
+                      {l.label} ↗
+                    </a>
+                  </Magnetic>
+                ))}
+                {project.github && <Magnetic>
                   <a
                     href={project.github}
                     target="_blank"
@@ -103,7 +116,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                   >
                     GitHub ↗
                   </a>
-                </Magnetic>
+                </Magnetic>}
               </motion.div>
             )}
 

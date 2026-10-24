@@ -111,6 +111,7 @@ export type Project = {
   features: string[];
   metrics: Metric[];
   github?: string;
+  links?: { label: string; href: string }[];
   palette: Palette;
   motif: 'shield' | 'flow' | 'tenants';
 };
@@ -198,6 +199,94 @@ export const projects: Project[] = [
       { value: 'Automated', label: 'action items' },
     ],
     palette: { from: '#1f0a2e', via: '#7a1e5c', to: '#0f0620', accent: '#ff66b2' },
+    motif: 'tenants',
+  },
+  {
+    id: 'ai-college-website',
+    title: 'AI-Powered College Website',
+    year: '2026',
+    genre: 'React • AI Chatbot • RAG • JSS Academy of Technical Education, Noida',
+    logline: 'Mini project: an AI-powered college website with a Website Navigator, Kashi AI Chatbot, and Student Dashboard that makes college information more accessible.',
+    stack: ['React.js', 'JavaScript', 'JSX', 'Vite', 'Git', 'GitHub', 'Vercel', 'RAG'],
+    build: [
+      'Developed an AI-Powered College Website with a Website Navigator, Kashi AI Chatbot, and Student Dashboard.',
+      'Built a modern, interactive, user-friendly platform to make college-related information more accessible.',
+      'Explored Artificial Intelligence and Retrieval-Augmented Generation (RAG) to improve information retrieval.',
+    ],
+    features: [
+      'Website Navigator to find relevant college information easily',
+      'Kashi AI Chatbot answering college questions in natural language',
+      'Student Dashboard with profile details and recent internship information',
+      'Deployed on Vercel with GitHub version control',
+    ],
+    metrics: [
+      { value: '3', label: 'core modules' },
+      { value: 'AI-powered', label: 'chatbot' },
+      { value: 'Live', label: 'on Vercel' },
+    ],
+    github: 'https://lnkd.in/g_hQ_ScN',
+    links: [
+      { label: 'JSS Website with Student Portal', href: 'https://lnkd.in/gkta56QB' },
+      { label: 'Kashi AI Chatbot', href: 'https://lnkd.in/gUCVzYjr' },
+    ],
+    palette: { from: '#071a2b', via: '#0e5a6b', to: '#050d17', accent: '#3ddcc8' },
+    motif: 'flow',
+  },
+  {
+    id: 'dev-partner-portfolio',
+    title: 'Meet Your Dev Partner — Personal Portfolio',
+    year: '2026',
+    genre: 'React • Portfolio • Full-Stack • Generative AI',
+    logline: 'A personal portfolio concept that shows not just what I code, but how I think, solve problems, and turn ideas into real-world applications.',
+    stack: ['React.js', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+    build: [
+      'Designed and built a portfolio around the idea: "Your idea. My code. Let\'s make it real."',
+      'Showcases work across web development, AI-powered solutions, RAG pipelines, AI agents, and cloud computing.',
+      'Continuously improved, one project at a time.',
+    ],
+    features: [
+      'Responsive, interactive portfolio experience',
+      'Projects spanning web apps, RAG pipelines, and AI agents',
+      'Built to connect with developers, mentors, and recruiters',
+    ],
+    metrics: [
+      { value: 'Full-Stack', label: 'web + AI + cloud' },
+      { value: 'Live', label: 'deployed portfolio' },
+    ],
+    github: 'https://lnkd.in/giNK6Tih',
+    links: [
+      { label: 'Live Portfolio', href: 'https://lnkd.in/gJxx3dyn' },
+      { label: 'Live Link', href: 'https://lnkd.in/gW5wnDC3' },
+    ],
+    palette: { from: '#1c1405', via: '#7a4e0e', to: '#0d0a03', accent: '#ffb84d' },
+    motif: 'shield',
+  },
+  {
+    id: 'soul-spark-website',
+    title: 'Soul Spark Website',
+    year: '2025',
+    genre: 'React • Tailwind CSS • My First Live Project',
+    logline: 'My very first website project: designed, developed, and deployed live for Soul Spark with a clean, modern, responsive, and user-friendly experience.',
+    stack: ['React.js', 'JavaScript', 'Tailwind CSS', 'Vite', 'PostCSS', 'Vercel'],
+    build: [
+      'Designed, developed, and deployed the Soul Spark website end to end.',
+      'Built the UI and reusable components, and made the site fully responsive.',
+      'Deployed live on Vercel; gained hands-on experience and confidence for bigger projects.',
+    ],
+    features: [
+      'Clean, modern, responsive UI',
+      'Reusable React components',
+      'Contact Us section with official email and phone number',
+      'Live deployment on Vercel',
+    ],
+    metrics: [
+      { value: '1st', label: 'live project' },
+      { value: 'Responsive', label: 'design' },
+      { value: 'Live', label: 'on Vercel' },
+    ],
+    github: 'https://lnkd.in/d6SAri_5',
+    links: [{ label: 'Live Website', href: 'https://lnkd.in/djAi7qpS' }],
+    palette: { from: '#2a0f1c', via: '#8a2a55', to: '#14070e', accent: '#ff8fc0' },
     motif: 'tenants',
   },
 ];
