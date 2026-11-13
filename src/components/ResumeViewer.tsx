@@ -37,8 +37,8 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
             </Magnetic>
             <Magnetic className="w-full">
               <a
-                href={profile.resumePdf}
-                download="Kashi_Mahtta_Resume.pdf"
+                href={profile.resumeDocx}
+                download="Kashi_Mahtta_Resume.docx"
                 data-cursor="link"
                 className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[15px] font-semibold text-bone transition hover:bg-white/15"
               >
@@ -110,7 +110,7 @@ export function ResumeSheet() {
         </div>
       </header>
 
-      <div className="grid gap-x-10 md:grid-cols-[1.4fr_1fr]">
+      <div className="grid gap-x-10 md:grid-cols-2">
         <div>
           <H>Education</H>
           {education.map((e) => (
@@ -147,19 +147,6 @@ export function ResumeSheet() {
             </div>
           ))}
 
-          <H>Projects</H>
-          {projects.map((p) => (
-            <div key={p.id} className="mb-3">
-              <div className="flex flex-wrap justify-between gap-x-3">
-                <p className="text-sm font-semibold text-bone">{p.title}</p>
-                <p className="text-xs text-smoke">{p.year}</p>
-              </div>
-              <p className="text-xs text-mist">{p.stack.join(', ')}</p>
-            </div>
-          ))}
-        </div>
-
-        <div>
           <H>Skills</H>
           <div className="space-y-2">
             {skillCategories.map((c) => (
@@ -188,6 +175,19 @@ export function ResumeSheet() {
               .map((iss) => `${iss}: ${certifications.filter((c) => c.issuer === iss).map((c) => c.name).join(', ')}`)
               .join(' · ')}
           </p>
+        </div>
+
+        <div>
+          <H>Projects</H>
+          {projects.map((p) => (
+            <div key={p.id} className="mb-3">
+              <div className="flex flex-wrap justify-between gap-x-3">
+                <p className="text-sm font-semibold text-bone">{p.title}</p>
+                <p className="text-xs text-smoke">{p.year}</p>
+              </div>
+              <p className="text-xs text-mist">{p.stack.join(', ')}</p>
+            </div>
+          ))}
         </div>
       </div>
     </article>

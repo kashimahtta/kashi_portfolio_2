@@ -26,7 +26,7 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/kashi-mahtta',
     github: 'https://github.com/kashimahtta',
   },
-  resumePdf: '/assets/Kashi_Mahtta_Resume.pdf',
+  resumeDocx: new URL('../../kashi_resume_final.docx', import.meta.url).href,
   portrait: {
     src: '/assets/portrait-720.webp',
     srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
