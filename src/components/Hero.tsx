@@ -44,7 +44,7 @@ export default function Hero({ onPlay }: { onPlay: () => void }) {
   ];
 
   const floating = [
-    { text: 'Full-Stack Dev', sub: 'Learning DSA & Cloud', pos: 'left-[2%] top-[30%]', depth: 1 },
+    { text: 'Full-Stack Dev', sub: 'DSA & Problem Solving', pos: 'left-[2%] top-[30%]', depth: 1 },
     { text: 'HCLTech Intern', sub: 'Gen AI & LLM', pos: 'right-[0%] top-[18%]', depth: -1 },
     { text: 'React · Python · Node.js', sub: 'Primary stack', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
   ];

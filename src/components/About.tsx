@@ -46,16 +46,23 @@ export default function About() {
         </motion.div>
 
         <div>
-          <motion.p
-            className="font-serif text-[clamp(1.6rem,3.2vw,2.6rem)] italic leading-[1.15] text-bone"
+          <motion.div
             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: EASE }}
           >
-            “{profile.intro}”
-          </motion.p>
-          <p className="mt-4 text-sm text-mist">— {profile.fullName}</p>
+            {profile.about.map((paragraph, index) => (
+              <p
+                key={paragraph}
+                className={index === 0
+                  ? 'font-serif text-[clamp(1.35rem,2.4vw,2rem)] leading-[1.2] text-bone'
+                  : 'mt-4 text-sm leading-relaxed text-mist'}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </motion.div>
 
           <motion.dl
             className="mt-10 grid gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-2"
